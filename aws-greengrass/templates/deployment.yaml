@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: {{ .Release.Name }}
+  name: {{ .Release.Name }}-deploy
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      hostNetwork: true
+      containers:
+      - image: public.ecr.aws/aws-iot-greengrass/aws-iot-greengrass-v2:latest
+        name: aws-iot-greengrass-v2
+        ports:
+        - containerPort: {{ .Values.greengrassPort }}
+        resources: {}
+        envFrom:
+          - configMapRef:
+              name: {{ .Release.Name }}-env-configmap
+        volumeMounts:
+        - name: credentials
+          mountPath: /root/.aws
+      volumes:
+        - name: credentials
+          configMap:
+            name: {{ .Release.Name }}-cred-configmap
