@@ -3,12 +3,12 @@ entries:
   aws-greengrass:
   - apiVersion: v2
     appVersion: 2.4.0
-    created: "2021-11-01T08:06:35.638001-07:00"
+    created: "2021-11-01T16:37:34.328004-07:00"
     description: Helm chart for installing AWS Greengrass service
-    digest: 8be24aa29880e58dc2aff6f375eddc983f3177a95d0a373dd8b878f83fef0859
+    digest: f0f1a0e1390cea5924dcd23029e74698f15c2babce0adaf8e91093d419818fa7
     name: aws-greengrass
     type: application
     urls:
-    - aws-greengrass-0.1.1.tgz
-    version: 0.1.1
-generated: "2021-11-01T08:06:35.637392-07:00"
+    - aws-greengrass-0.1.2.tgz
+    version: 0.1.2
+generated: "2021-11-01T16:37:34.32714-07:00"
